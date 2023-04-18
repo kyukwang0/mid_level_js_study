@@ -1,6 +1,6 @@
 # mid_level_js_study
  
-- var let const의 차이   
+- # var let const의 차이   
 
 var 와 let 은 비슷    
 var는 한번 선언된 변수를 다시 선언 가능    
