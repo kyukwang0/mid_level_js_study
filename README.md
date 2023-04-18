@@ -1,8 +1,8 @@
 # mid_level_js_study
  
-- var let const의 차이
-var 와 let 은 비슷
-var는 한번 선언된 변수를 다시 선언 가능
+- var let const의 차이   
+var 와 let 은 비슷    
+var는 한번 선언된 변수를 다시 선언 가능    
 
 var는 호이스팅(선언하기 전 최상위로 올라가는것 처럼 사용)     
 선언은 호이스팅 되지만 할당은 호이스팅 되지 않음     
