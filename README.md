@@ -37,3 +37,18 @@ let, const : 블록스코프
 생성자 함수는 필요한 재료를 넣어 만들어줌    
 생성자 함수를 첫글자를 대문자로 하는게 국룰    
 new 연산자를 호출하여 만들 수 있음    
+
+- ## 객체(Object // methods / computed property
+
+Object.assign() 복제    
+Object.assign({}, user) >> 첫번째 값은 초기값 두번째는 변수 (복제됨)    
+초기값에 {gender : 'male'}이 들어간다면 gender 생성됨     
+key 값이 같으면 복제 안됨 기존값이 덮어씀      
+여러개를 복제하여 한번에 복제    
+Object.assign(user, info1, info2) 3개가 합쳐저 복제됨   
+
+Object.key() key값만 배열로    
+Object.value() value값만 배열로    
+Object.entries key, value 모두 배열로   
+
+Object.fromEntries() : key value 값 배열을 객체로 바꿔줌(반대)
