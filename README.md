@@ -52,3 +52,19 @@ Object.value() value값만 배열로
 Object.entries key, value 모두 배열로   
 
 Object.fromEntries() : key value 값 배열을 객체로 바꿔줌(반대)
+
+- ## Symbol
+
+property key : 문자형으로 접근할때도 obj['1'] 문자형으로 접근 해야함   
+Symbol : 유일한 식별자를 만들때 사용 (전체코드 중 딱 1개만 가능)  
+심볼형은 object. key, value, entries, for(let a in ) 건너뛰고 출력   
+숨겨진 심볼 key 보는법 Object.geyOwnPropertySymbols()을 통하여 확인가능     
+Reflect.ownkeys()를 총하여 심볼 key 포함한 객체 모든 key 조회가능(잘안씀)    
+심볼형은 a.description을 통하여 심볼값 조회가능   
+
+Symbol.for() : 전역심볼
+하나의 심볼만 보장받을 수 있음   
+없으면 만들고 있으면 가져오기 떄문    
+Symbol 함수는 매번 다른 Symbol 값을 생성하지만,   
+Symbol.for 메소드는 하나를 생성한 뒤 key를 통하여 같은 Symbol을 공유   
+전역심볼이 아닐경우 keyFor 사용불가   
