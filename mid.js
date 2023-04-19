@@ -349,3 +349,76 @@
 //Math.sqrt() : 제곱근
 // console.log(Math.sqrt(9)); // 3
 
+// String (문자열) 
+// length : 문자열의 길이
+// 문자열도 대괄호로 인하여 접근가능
+// let desc = '안녕하세요';
+// console.log(desc[1]); //녕
+
+// toUpperCase(), toLowerCase() : 영문 대,소문자로 바꾸기
+// let desc = "Hi guys. Nice to meet you.";
+// console.log(desc.toUpperCase());
+// console.log(desc.toLowerCase());
+
+// // str.indexOf(text): 문자열 위치찾기 문자열 찾는문자 없으면 -1
+// 포함된 문자가 많아도 첫번째 문자만 반환
+// console.log(desc.indexOf('Nice')); //9
+// if(desc.indexOf('Hi')> -1){ //if에서 0은 false이므로  > -1 없으면 동작안함
+//     console.log('Hi가 포함된 문장입니다.');
+// }
+
+// str.slice(n,m) n부터 m까지 문자열 자르기
+// console.log(desc.slice(2)); //3번째 문자열부터 끝까지
+// console.log(desc.slice(1,3)); //i
+// console.log(desc.slice(2,-4)); // 3번째 문자열부터 -4번째 글자까지
+
+//str.substring(n,m)
+// n과 m 사이 문자열 반환
+// n과 m을 바꿔도 동작함
+// 음수는 0으로 인식
+// console.log(desc.substring(2,5)); /gu
+// console.log(desc.substring(5,2)); /gu
+
+// str.substr(n,m) : n부터 시작해서 m개를 가져옴
+// console.log(desc.substr(2,5));
+
+// str.trim() : 앞,뒤 공백 제거
+// let de = " .d.  "
+// console.log(de.trim()); /.d.
+
+// str.repeat(n): n번 반복
+// console.log(desc.repeat(2));
+
+//문자열비교
+// 소문자가 대문자보다 크다 a보다 z가 크다
+
+//실습
+// let list = [
+//     "01. 들어가며",
+//     "02. JS의 역사",
+//     "03. 자료형",
+//     "04. 함수",
+//     "05. 배열",
+// ];
+
+// let newList = []
+// for(let i=0; i <list.length; i++){
+//     newList.push(
+//         list[i].slice(4)
+//     );
+// }
+// console.log(newList);
+
+//금칙어 : 콜라
+//includes 문자가 있으면 True 없으면 false 반환
+
+// function hasCola(str){
+//     if(str.includes('콜라')){
+//         console.log('금칙어가 있습니다.');
+//     } else{
+//         console.log('통과');
+//     }
+// }
+// hasCola('와 사이다가 짱이야!'); //-1
+// hasCola('와 콜라가 짱이야!'); //-1
+// hasCola('콜라!'); //0 
