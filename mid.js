@@ -260,3 +260,92 @@
 // for (let a in user) {
 //     console.log(`His ${a} is ${user[a]}.`) //key value 값 순회
 // }
+
+// Number, Math
+// toString() 10진수를 >> 2진수or 16진수로 바꾸기
+
+// let num = 10;
+// let num1 = num.toString(2);
+// console.log(num1); // 1010
+
+// let num2 = 255;
+// let num3 = num2.toString(16);
+// console.log(num3) // ff
+
+// Math.PI; 원주율을 구해줌
+
+// Math.ceil() :올림
+// let num1 = 5.1;
+// console.log(Math.ceil(num1));
+
+// Math.floor() : 내림
+// let num1 = 5.1;
+// console.log(Math.floor(num1));
+
+// Math.round() : 반올림
+// let num1 = 5.1;
+// let num2 = 5.7;
+// console.log(Math.round(num1));
+// console.log(Math.round(num2));
+
+// toFixed() : 소숫점 자리수만큼 반환
+// 단점 : 문자열로 반환되기 때문에 숫자형태로 바꿔줘야함
+// let num = 10.23123
+// // 2번째 자리까지
+// console.log(num.toFixed(2));
+// // 남은부분은 0으로 채워짐
+// console.log(num.toFixed(10));
+// //문자열로 반환되는걸 숫자형으로 받기
+// console.log(Number(num.toFixed(2)));
+
+// isNaN() : NaN인지 판단해줌
+
+// let x = Number('x');
+// console.log(x == NaN) //false
+// console.log(x === NaN) //false
+// console.log(NaN == NaN) //false
+// console.log(isNaN(x)) //true
+// console.log(isNaN(10)) //false
+
+// parseInt()
+// 문자가 혼용되어 있어도 문자열을 숫자로 반환
+// 첫글자가 숫자가 아닐경우 NaN반환 
+// 두번째 인수를 받아서 진수를 지정할 수 있다
+
+// let margin = '10px';
+// console.log(parseInt(margin)); //10
+
+// let redColor = 'f3';
+// console.log(parseInt(redColor)); //NaN
+// // 2번째 인수를 16진수로 지정
+// console.log(parseInt(redColor, 16)); // 243
+
+// parseFloat() : 부동소숫점 반환
+
+// let padding = '18.5%';
+// console.log(parseInt(padding)); //18
+// console.log(parseFloat(padding)); //18.5
+
+// Math.random() : 0~1 사이 무작위 숫자 생성
+// const num = Math.random();
+// console.log(num);
+// //1부터 100까지 랜덤숫자
+// const rd = Math.floor(Math.random()*100)+1;
+// console.log(rd);
+
+// Math.max, Math.min :최대값 최소값 구하기
+// let num = [1,3,5,5,7,4];
+// // console.log(typeof(num));
+// console.log(Math.max(...num)); //배열로 되어있기때문에 펼친다
+// console.log(Math.min(...num));//배열로 되어있기때문에 펼친다
+
+//Math.abs() : 절대값 반환
+// let num = -193;
+// console.log(Math.abs(num));
+
+//Math.pow(n,m) : 제곱 (n의 m승 값)
+// console.log(Math.pow(3, 2)); //3의 제곱 9출력
+
+//Math.sqrt() : 제곱근
+// console.log(Math.sqrt(9)); // 3
+
