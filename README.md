@@ -68,3 +68,39 @@ Symbol.for() : 전역심볼
 Symbol 함수는 매번 다른 Symbol 값을 생성하지만,   
 Symbol.for 메소드는 하나를 생성한 뒤 key를 통하여 같은 Symbol을 공유   
 전역심볼이 아닐경우 keyFor 사용불가   
+
+- ## Number, Math
+toString() 10진수를 >> 2진수or 16진수로 바꾸기   
+Math.PI : 원주율을 구해줌   
+Math.ceil() : 올림   
+Math.floor() : 내림   
+Math.round() : 반올림  
+
+toFixed()  
+소수점 자리수만큼 반환   
+만약 소수점 이상의 숫자를 입력할경우 0으로 채워짐     
+단점 : 문자열로 반환되기 떄문에 숫자형태로 바꿔줘야함     
+ex ) Number(a.toFixed(2));   
+
+isNaN() : NaN값인지 확인해줌   
+
+parseInt()  
+문자가 혼용되어 있어도 문자열을 숫자로 반환해줌   
+첫글자가 숫자가 아닐경우 NaN반환   
+두번째 인수를 받아서 진수를 지정하 수 있다  
+ex ) parseInt(a, 16); // a를 16진수로
+
+parseFloat() : 부동소숫점 반환  
+
+Mathrandom : 0~1사이 무작위 숫자 생성     
+ex ) 1 ~ 100까지 숫자 생성     
+Math.floor(Math.random()*100)+1);     
+
+Math.max() , Math.min()  : 최대갑 최소값 구하기   
+Math.abs() : 절대값 반환   
+
+Math.pow(n,m) : n의 m승 값   
+ex ) Math.pow(3,2); // 3의 제곱 9 출력
+
+Math.sqrt() : 제곱근
+
