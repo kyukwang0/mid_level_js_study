@@ -104,3 +104,18 @@ ex ) Math.pow(3,2); // 3의 제곱 9 출력
 
 Math.sqrt() : 제곱근
 
+- ## string (문자열)
+문자열도 대괄호를 이용하여 접근가능   
+문자열 비교 소문자가 대문자보다 크고 a보다 z가 크다
+ex) str[1]   
+length : 문자열의 길이     
+toUpperCase(), toLowerCase() : 영어 대,소문자 바꾸기   
+str.indexOf(text) : 문자열 위치찾기 찾는문자 없으면 -1, 포함된 문자가 많아도 첫번째 문자만 반환    
+str.slice(n,m) : n부터 m까지 문자열 자르기
+str.substring(n,m) : n과 m사이 문자열 반환, n,m순서 바꿔도 인식, 음수는 0으로 인식   
+str.substr(n,m) : n부터 시작해서 m개를 가져옴     
+str.trim() : 앞,뒤 공백제거    
+str.repeat(n) : n번 반복   
+
+
+
