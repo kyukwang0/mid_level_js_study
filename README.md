@@ -78,8 +78,8 @@ Math.round() : 반올림
 
 toFixed()  
 소수점 자리수만큼 반환   
-만약 소수점 이상의 숫자를 입력할경우 0으로 채워짐
-단점 : 문자열로 반환되기 떄문에 숫자형태로 바꿔줘야함   
+만약 소수점 이상의 숫자를 입력할경우 0으로 채워짐. 
+단점 : 문자열로 반환되기 떄문에 숫자형태로 바꿔줘야함.   
 ex ) Number(a.toFixed(2));   
 
 isNaN() : NaN값인지 확인해줌   
@@ -92,9 +92,9 @@ ex ) parseInt(a, 16); // a를 16진수로
 
 parseFloat() : 부동소숫점 반환  
 
-Mathrandom : 0~1사이 무작위 숫자 생성
-ex ) 1 ~ 100까지 숫자 생성   
-Math.floor(Math.random()*100)+1);   
+Mathrandom : 0~1사이 무작위 숫자 생성.    
+ex ) 1 ~ 100까지 숫자 생성     
+Math.floor(Math.random()*100)+1);     
 
 Math.max() , Math.min()  : 최대갑 최소값 구하기   
 Math.abs() : 절대값 반환   
@@ -104,4 +104,3 @@ ex ) Math.pow(3,2); // 3의 제곱 9 출력
 
 Math.sqrt() : 제곱근
 
-- ## Number, Math
