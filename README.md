@@ -111,7 +111,7 @@ ex) str[1]
 length : 문자열의 길이     
 toUpperCase(), toLowerCase() : 영어 대,소문자 바꾸기   
 str.indexOf(text) : 문자열 위치찾기 찾는문자 없으면 -1, 포함된 문자가 많아도 첫번째 문자만 반환    
-str.slice(n,m) : n부터 m까지 문자열 자르기
+str.slice(n,m) : n부터 m까지 문자열 자르기      
 str.substring(n,m) : n과 m사이 문자열 반환, n,m순서 바꿔도 인식, 음수는 0으로 인식   
 str.substr(n,m) : n부터 시작해서 m개를 가져옴     
 str.trim() : 앞,뒤 공백제거    
