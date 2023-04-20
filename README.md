@@ -117,5 +117,35 @@ str.substr(n,m) : n부터 시작해서 m개를 가져옴
 str.trim() : 앞,뒤 공백제거    
 str.repeat(n) : n번 반복   
 
+- ## Array (배열)
 
+push() : 뒤에 삽입, pop() : 뒤에 삭제, unshift() : 앞에 삽입, shift() : 앞에 삭제     
 
+arr.splice(n,m,x)    
+특정요소 n번째 요소부터 m개 까지 제거 후 x로 채우기
+특정요소 n번째 요소부터 m개 까지 제거된 요소를 반환(두번째 0을 입력시 이무것도 지우지 않음)    
+
+arr.slice(n,m) : n부터 m까지 반환      
+arr.concat(arr1, arr2, .....) : 합쳐서 새 배열 만들기   
+
+arr.forEach(fn)     
+배열반복, 보통 item, index만 입력
+item = 해당요소, index = index, arr = 해당배열전체    
+
+arr.indexOf / arr.lastindexOf
+발견하면 해당요소의 순서를 반환, 없으면 -1    
+indexOf(2,2) 이면 2번부터 2가 나올때까지 탐색 시작    
+lastindexOf() : 끝에서부터 탐색    
+
+arr.includes() : 포함여부확인    
+arr.find(fn), arr.findindex(fn)    
+첫번재 true 값만 반환하고 종료    
+만약 없으면 undefinde를 반환    
+함수사용에 요긴함     
+findindex는 위치만 반환    
+
+arr.filter(fn) : 만족하는 모든 요소 반환     
+arr.map(fn) : 함수를 받아 특정 기능을 시행하고 새로운 배열을 반환    
+join() : 합치기 아무것도 주지않으면 ,로 들어감      
+split() : split(',')이 기준이라면 , 기준으로 잘림     
+Array.isArray() : 배열인지 아닌지 확인
