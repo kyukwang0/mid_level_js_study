@@ -422,3 +422,160 @@
 // hasCola('와 사이다가 짱이야!'); //-1
 // hasCola('와 콜라가 짱이야!'); //-1
 // hasCola('콜라!'); //0 
+
+//Array
+// Push() : 뒤에삽입, pop() : 뒤에 삭제, unshift() : 앞에 삽입, shift() : 앞에삭제
+//arr.splice(n,m,x) : 특정요소지움 n번째 요소부터 m개 까지 제거후 x로 채우기
+//arr.splice(n,m) : 삭제된 요소를 반환
+// let arr = [1,2,3,4,5];
+// arr.splice(1,2); //[1,4,5]
+// arr.splice(1,0,1); //[1,1,2,3,4,5] 0을 입력시 아무것도 지우지 않음
+// arr.splice(1,2,100); //[1,100,4,5]
+// arr.splice(1,2,100,200); //[1,100,200,4,5]
+// arr.splice(1,2,100,200,300); //[1,100,200,300,4,5]
+// let result = arr.splice(1,2) //[2,3]
+// console.log(arr);
+// console.log(result);
+
+// arr.slice(n,m) : n부터 m까지 반환
+// let arr = [1,2,3,4,5];
+// console.log(arr.slice(1,4)); // [2,3,4]
+// console.log(arr.slice()); // [1,2,3,4,5]
+// console.log(arr);
+
+// arr.concat(arr, arr1 ....) : 합쳐서 새 배열 만들기
+// let arr = [1,2];
+// console.log(arr.concat([3,4])); //[ 1, 2, 3, 4 ]
+// console.log(arr.concat([5],[6])); //[ 1, 2, 5, 6 ]
+// console.log(arr.concat([7],8)); // [ 1, 2, 7, 8 ]
+
+// arr.forEach(fn) : 배열 반복
+// 보통 item, index만 입력
+// item : 해당요소, index : index, arr : 해당배열자채
+// let user = ['kim', 'pack', 'choi'];
+// user.forEach((item, index, arr) => {
+//     console.log(item); //kim
+//     console.log(index); //0
+//     console.log(arr); //['kim', 'park', 'choi']
+// });
+// let user = ['kim', 'pack', 'choi'];
+// user.forEach((name, index) => {
+//     console.log(`${index +1}. ${name} `); //1. kim, 2.pack .....
+// })
+
+// arr.indexOf / arr.lastindexOf 
+// 발견하면 해당요소의 순서를 반환, 없으면 -1
+// indexOf(2,2)이면 2부터 2가 나올때까지 탐색시작
+// lastindexOf() : 끝에서 부터 탐색 
+// let arr = [1,2,3,4,5,1,2,7,3]
+// console.log(arr.indexOf(7)); //7
+// console.log(arr.indexOf(3,3)); //8
+// console.log(arr.lastIndexOf(7)); //7
+
+// arr.includes() : 포함여부 확인
+// let arr = [1,2,3,4,5,1,2,7,3]
+// console.log(arr.includes(7)); //ture
+
+// arr.find(fn) / arr.findindex(fn)
+// 첫번째 true 값만 반환하고 끝
+// 만약 없으면 undefined를 반환함
+// 함수 사용 요긴함
+// findindex는 위치만 반환
+
+//짝수를 찾아서 반환
+// let arr = [1,2,3,4,5,1,2,7,3]
+// const arr1 = arr.find((item) => {
+//     return item % 2 === 0;
+// });
+// console.log(arr1); //2
+
+// 미성년자찾기
+// let userList = [
+//     {name : "mike", age : 30},
+//     {name : "jane", age : 27},
+//     {name : "kim", age : 10},
+// ];
+// const user = userList.find((list) => {
+//     if(list.age < 19){
+//         return true;
+//     }
+//     return false
+// })
+// console.log(user) // { name: 'kim', age: 10 }
+
+// const user1 = userList.find((list) => {
+//     return list.age < 19;
+// })
+// console.log(user1) //{ name: 'kim', age: 10 }
+
+// const user = userList.findIndex((list) => {
+//     if(list.age < 19){
+//         return true;
+//     }
+//     return false
+// })
+// console.log(user) //2 위치만 반환
+
+
+// arr.filter(fn) : 만족하는 모든 요소 반환
+// 미성년자찾기
+// let userList = [
+//     {name : "mike", age : 30},
+//     {name : "jane", age : 27},
+//     {name : "kim", age : 10},
+//     {name : "Lee", age : 11},
+// ];
+
+// const user = userList.filter((list) => {
+//     if(list.age < 19){
+//         return true
+//     }
+//     return false
+// })
+// console.log(user); //[ { name: 'kim', age: 10 }, { name: 'Lee', age: 11 } ]
+
+// arr.reverse() : 역순으로 재정렬
+// let arr = [1,2,3,4,5]
+// console.log(arr.reverse());
+
+// arr.map(fn)
+// 함수를 받아 특정 기능을 시행하고 새로운 배열을 반환
+// let userList = [
+//     {name : "mike", age : 30},
+//     {name : "jane", age : 27},
+//     {name : "kim", age : 10},
+//     {name : "Lee", age : 11},
+// ];
+
+// let newuser = userList.map((user, index) =>{
+//     return Object.assign({}, user, { //user에 isAdult를 만들어 복제
+//         ID : index +1 , //ID index값을 추가해봤음
+//         isAdult : user.age > 19,
+//     });
+// });
+// console.log(newuser);
+
+// join, split 
+// join() 같이 아무것도 주지않으면 ,로 들어감
+// split(',') 이라면 ,기준으로 잘림
+
+//join
+// let str = ['hello', 'my', 'name', 'is', 'kim'];
+// let strjoin = str.join();
+// let strjoin1 = str.join('-');
+// console.log(strjoin); //hello,my,name,is,kim
+// console.log(strjoin1); //hello-my-name-is-kim
+
+//split
+// let str = 'hello, my, name, is, kim';
+// let strsplit = str.split(',');
+// console.log(strsplit); [ 'hello', ' my', ' name', ' is', ' kim' ]
+
+// Array.isArray() : 배열인지 아닌지 확인
+// 객체라고 알려줌
+// let userList = {name : "mike", age : 30};
+// let user = ["kim","back","Lee"];
+// console.log(typeof userList) //object
+// console.log(typeof user) //object
+// console.log(Array.isArray(userList)) //false
+// console.log(Array.isArray(user)) //true
