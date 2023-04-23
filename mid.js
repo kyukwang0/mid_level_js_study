@@ -579,3 +579,90 @@
 // console.log(typeof user) //object
 // console.log(Array.isArray(userList)) //false
 // console.log(Array.isArray(user)) //true
+
+//arr.sort() / arr.reduce()
+// sort() : 배열 재정렬 // 배열자체가 변경됨 // 인수로 정렬 로직을 담은 함수를 받음
+
+// let arr = [1,5,4,6,2];
+// let arr = ['a','b','e','s','k'];
+// let arr = [24,12,5,67,3]; //[ 12, 24, 3, 5, 67 ] 문자열로 인식해서 그럼
+// arr.sort((a,b) => {
+//     console.log(a,b) ;
+//     return a-b;
+// })
+// console.log(arr);
+// 좀 복잡하므로 유용한 기능을 모아놓은 Lodash같은 라이브러리를 사용한다
+// _.soryBy(arr); // 실무에서 많이 사용
+
+// 배열의 모든수 합치기
+// 일반적으로 for, for of, forEach 사용함
+// let arr = [1,2,3,4,5];
+// let result = 0
+// arr.forEach ((num) => {
+//     result += num;
+// });
+// console.log(result)
+
+//위의작업을 한번에 해주는 reduce!
+//인수로 함수를 받음
+//(누적계산값, 현재값) => {retrun 계산된값, 초기값};
+// const result = arr.reduce((prev, cur) =>{
+//     return prev + cur ;
+// }, 0);
+// console.log(result);
+
+//실습
+//성인만 뽑아 새로운 배열로
+let userList = [
+    {name : "kim", age : 20},
+    {name : "choi", age : 30},
+    {name : "Lee", age : 10},
+    {name : "kong", age : 12},
+    {name : "min", age : 24},
+];
+
+// let result = userList.reduce((prev,cur)=>{
+//     if(cur.age > 19){
+//         prev.push(cur.name, cur.age);
+//     }
+//     return prev;
+// },[])
+
+//나이의 합을 구하려면?
+// let result = userList.reduce((prev,cur)=>{
+//     return (prev += cur.age);
+// },0)
+// 이름이 3글자인 사람과 나이
+// let result = userList.reduce((prev,cur)=>{
+//     if(cur.name.length === 3){
+//         prev.push(cur.name, cur.age);
+//     }
+//     return prev;
+// },[]);
+// console.log(result);
+
+// 구조 분해 할당 (Destructuting assignment)
+// 구조 분해 할당 구문은 배열이나 객체의 속성을 분해해서
+// 그 값을 변수에 담을 수 있게 하는 표현식
+// 기본값을 설정해주면 배열이 길더라도 undefinde 표시안됨
+// 기본값 let [a=1,b=2...]
+// 공백을 통하여 일부값 무시가능 [a=1, ,c=2] 가운데 값 무시됨
+
+// let users = ['kim', 'Lee', 'choi'];
+// let [user1, user2, user3] = users
+
+// let users = ['kim', 'Lee', 'choi'];
+// let [user1, ,user2, user3] = users
+// console.log(user2); //choi
+
+// 구조분해 바꿔치기
+// let a = 1;
+// let b = 2;
+// [a,b] = [b,a]; 
+
+//객체 구조 분해 : 순서상관없음 
+// let user = {name : 'kim', age : 30};
+// let {name, age} = user;
+// let {age, name} = user;
+// let {name : userName, age : userAge} = user; //새로운 변수 이름으로 할당
+// console.log(userName);
