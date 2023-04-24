@@ -613,13 +613,13 @@
 
 //실습
 //성인만 뽑아 새로운 배열로
-let userList = [
-    {name : "kim", age : 20},
-    {name : "choi", age : 30},
-    {name : "Lee", age : 10},
-    {name : "kong", age : 12},
-    {name : "min", age : 24},
-];
+// let userList = [
+//     {name : "kim", age : 20},
+//     {name : "choi", age : 30},
+//     {name : "Lee", age : 10},
+//     {name : "kong", age : 12},
+//     {name : "min", age : 24},
+// ];
 
 // let result = userList.reduce((prev,cur)=>{
 //     if(cur.age > 19){
@@ -666,3 +666,113 @@ let userList = [
 // let {age, name} = user;
 // let {name : userName, age : userAge} = user; //새로운 변수 이름으로 할당
 // console.log(userName);
+
+//나머지 매개변수, 전개구문(Rest parameters, Spread syntax)
+// ... 이렇게 점 3개로 표현 
+// 함수에 접근방법 arguments , 나머지 매개변수 
+// arguments 
+// 함수로 넘어 온 모든 인수에 접근가능
+// 함수내에서 이용 가능한 지역 변수
+//lenght/index 배열객체 아닌 Array형태의 객체
+// 배열의 내장 메서드 없음 사용불가 (forEach, map)
+
+// 나머지 매개변수 ...로 표현
+// 개수가 정해지지 않은 매개변수 접근
+// 배열 메서드 사용 가능
+// 전개 구문 배열
+
+// arguments 실습
+// function showName(name){ //개수 제한 없음
+//     console.log(name);
+// }
+// showName() //undefined
+// showName('mike'); //mike
+// showName('mike', 'tom'); //mike
+// ...실습
+// function showName(...names){ //개수 제한 없음
+//     console.log(names);
+// }
+// showName() //[]
+// showName('mike'); //['mike']
+// showName('mike', 'tom'); //['mike', 'tom']
+
+//전달 받은 모든 수를 더해야함
+// function add(...numbers){
+//     let result = 0;
+//     numbers.forEach((num) => (result += num));
+//     console.log(result);
+// }
+
+// function add(...numbers){
+//     let result = numbers.reduce((prev,cur) => (prev += cur));
+//     console.log(result);
+// }
+// add(1,2,3);
+// add(1,2,3,4,5,6,7,8,9,10);
+
+//user 객체를 만들어 주는 생성자 함수
+// function User(name, age, ...skills){
+//     this.name = name;
+//     this.age = age;
+//     this.skills = skills;
+// }
+// const user1 = new User ('mike',30,'korean','Java');
+// const user2 = new User ('kim',19,'python','english');
+// const user3 = new User ('Lee', 23, 'JS','React');
+
+// console.log(user1);
+// console.log(user2);
+// console.log(user3);
+
+// let arr1 = [1,2,3];
+// let arr2 = [4,5,6];
+// let result = [0,...arr1,...arr2,]
+// console.log(result)
+
+//전개 구문 복제
+// let arr = [1,2,3];
+// let arr2 = [...arr];
+
+// let user = {name:'mike', age  : 30};
+// let user2 = user // user = Tom, user2 = Tom
+// let user2 = {...user}; // user = mike, user2 = Tom
+// user2.name = "Tom";
+// console.log(user.name);
+// console.log(user2.name);
+
+//실습
+// let arr1 = [1,2,3];
+// let arr2 = [4,5,6];
+// arr2.reverse().forEach((num) => {
+//     arr1.unshift(num);
+// });
+// console.log(arr1);
+//전계
+// arr1 = [...arr2,...arr1];
+// console.log(arr1);
+
+//객체 실습
+// let user = {name:'mike'};
+// let info = {age : 30};
+// let fe = ['js', 'react'];
+// let lang = ['korean', 'English'];
+
+// user = Object.assign({}, user, info, {
+//     skills : [],
+// })
+
+// fe.forEach(item => {
+//     user.skills.push(item);
+// })
+
+// lang.forEach(item => {
+//     user.skills.push(item);
+// })
+
+// user = {
+//     ...user,
+//     ...info,
+//     skills : [...fe,...lang],
+// }
+
+// console.log(user);
