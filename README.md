@@ -179,3 +179,16 @@ lenght/index 배열객체 아닌 Array형태의 객체
 함수와 렉시컬 환경의 조합     
 함수가 생성될 당시의 외부 변수를 기억     
 생성 이후에도 계속 접근 가능     
+
+- ## setTimeout / setInterval
+setTimeout() : 일정시간 지난 후 함수 실행      
+setTimeout(showName, 3000, 'Mike')      
+첫번째는 일정시간이 지난 후 실행되는 함수
+두번째는 시간 3000 = 3s
+세번째는 인수
+주의사항 : 0을 입력하면 바로 실행 안되고 4ms이상의 시간이 걸림
+
+clearTimeout() : 스케줄링 취소      
+setInterval : 일정시간 간격으로 함수를 반복     
+clearsetInterval : 취소      
+
