@@ -192,3 +192,15 @@ clearTimeout() : 스케줄링 취소
 setInterval : 일정시간 간격으로 함수를 반복     
 clearsetInterval : 취소      
 
+- ## call, apply, bind
+함수 호출 방식과 관계 없이 this를 지정 할 수 있음     
+매개변수를 직접받음     
+apply : 매개변수를 배열로 받음 Array로 받음     
+bind : this 값을 항상 같은 값으로 받음
+
+- ## 상속, prototype
+hasOwnproperty :  메서드로 설정할 경우 메서드 우선     
+객체가 직접 가지고 있는 프로퍼티만 반환     
+상속은 계속 이어질 수 있음    
+A instanceof B : 인스턴스를 확인해 보는 것
+A constructor === B : 생성자 확인
