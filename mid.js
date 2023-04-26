@@ -776,3 +776,316 @@
 // }
 
 // console.log(user);
+
+//클로저(Closure)
+// 어휘적환경(Lexical Environment)
+// 함수와 렉시컬 환경의 조합
+// 함수가 생성될 당시의 외부 변수를 기억
+// 생성 이후에도 계속 접근 가능
+// 작동순서
+// 1. Lexical 환경
+// one : 초기화 X<사용불가>, addOne : function <사용가능>
+
+// let one; //one<사용가능> : undefinde 
+// one = 1;
+// function addOne(num) {
+//     console.log(one + num);
+// }
+// addOne(5); //내부 Lexical환경
+
+// function makeAdder(x){
+//     return function(y){
+//         return x + y;
+//     }
+// }
+// const add3 = makeAdder(3);
+// console.log(add3(2));
+
+// function makeCounter(){
+//     let num = 0; //은닉화
+
+//     return function () {
+//         return num++;
+//     };
+// }
+// let counter = makeCounter();
+// console.log(counter()); //0
+// console.log(counter()); //1
+// console.log(counter()); //2
+
+//setTimeout / setInterval
+// setTimeout : 일정시간이 지난 후 함수를 실행
+// clearTimeout() : 스케줄링 취소
+// setInterval : 일정시간 간격으로 함수를 반복
+
+// function fn(){
+//     console.log(3)
+// }
+// setTimeout(fn, 3000); 
+//다른표현방식
+// setTimeout(function fn(){
+//     console.log(3)
+// },3000);
+// const tID = function showName(name){
+//     console.log(name);
+// }
+// setTimeout(showName, 3000, 'Mike')
+// 첫번째는 일정시간이 지난 후 실행되는 함수
+// 두번째는 시간 3000 = 3s
+// 세번째는 인수
+// clearTimeout(tID);
+
+// function showName(name){
+//     console.log(name);
+// }
+// const tId = setInterval(showName, 3000, 'Mike');
+// clearInterval(tId);
+
+//주의사항
+// 0을 입력하면 바로실행 안되고 4ms이상의 시간이 걸림
+// setTimeout(function(){
+//     console.log(2)
+// },0);
+// console.log(1); 
+
+//실습
+// let num = 0;
+// function showTime(){
+//     console.log(`안녕하세요. 접속하신지 ${num++}초가 지났습니다`);
+//     if (num > 5){ 
+//     clearInterval(tId);
+//     }
+// }
+// const tId = setInterval(showTime, 1000);
+
+// call,apply,bind 
+// 함수 호출 방식과 관계없이 this를 지정할 수 있음
+// 매개변수를 직접받음
+// apply : 매개변수를 배열로 받음 Array로 받는다
+// bind : this 값을 항상 같은 값을 this로 받음
+
+// const mike = {
+//     name : 'mike'
+// }
+
+// const tom = {
+//     name : 'Tom'
+// }
+
+// function showThisname(){
+//     console.log(this.name);
+// }
+// showThisname();
+// showThisname.call(mike);
+// showThisname.call(tom);
+// function update(birthYear, occupation){
+//     this.birthYear = birthYear;
+//     this.occupation = occupation;
+// };
+// update.call(tom, 1992, 'teacher');
+// console.log(tom);
+// update.call(mike, 1991, 'singer');
+// console.log(mike);
+
+// update.apply(tom, [1992, 'teacher']);
+// console.log(tom);
+// update.apply(mike, [1991, 'singer']);
+// console.log(mike);
+// const num = [3,10,1,6,5]
+// const minNum = Math.min(...num);
+// const maxNum = Math.max(...num);
+// const minNum = Math.min.apply(null, num);
+// const maxNum = Math.max.call(null, ...num); 
+// console.log(minNum);
+// console.log(maxNum);
+
+// const mike = {
+//     name : 'mike',
+// }
+// function update(birthYear, occupation){
+//     this.birthYear = birthYear;
+//     this.occupation = occupation;
+// }
+
+// const updateMike = update.bind(mike); //bind는 항상 mike만 받음
+// updateMike (1977, 'police')
+// console.log(mike);
+
+//실습
+// const user = {
+//     name : 'mike',
+//     showname : function () {
+//         console.log(`hello, ${this.name}`);
+//     },
+// };
+// user.showname();
+// let fn = user.showname;
+// fn(); //undefind
+// fn(user); //undefind
+// fn.call(user);
+// fn.apply(user);
+// let boundFn = fn.bind(user);
+// boundFn();
+
+// 상속, prototype
+// hasOwnProperty : 메서드로 설정할 경우 메서드 우선
+// 객체가 직접 가지고 있는 프로퍼티만 반환
+// 상속은 계속 이어질 수 있음
+// A instanceof B : 인스턴스를 확인해보는 것
+// A constructor === B : 생성자 확인
+// const user = {
+//     name : 'mike',
+//     hasOwnProperty : function(){
+//         console.log('haha');
+//     }
+// };
+// console.log(user.name);
+// console.log(user.hasOwnProperty); //[Function: hasOwnProperty]
+// console.log(user.hasOwnProperty('name')); //true
+// console.log(user.hasOwnProperty('age')); // false
+
+// const car = {
+//     wheels : 4,
+//     drive() {
+//         console.log('drive..');
+//     },
+// }
+
+// const bmw = {
+//     color : 'red',
+//     wheels : 4,
+//     navigation : 1,
+    // drive() {
+    //     console.log('drive..');
+    // },
+// };
+// const banz = {
+//     color : 'black',
+//     wheels : 4,
+//     navigation : 1,
+    // drive() {
+    //     console.log('drive..');
+    // },
+// };
+// const audi = {
+//     color : 'blue',
+//     wheels : 4,
+//     navigation : 1,
+    // drive() {
+    //     console.log('drive..');
+    // },
+// };
+// 상속 : 공통된 부분은 car가 bmw의 prototype으로 만들어주기
+// bmw.__proto__ = car;
+// banz.__proto__ = car;
+// audi.__proto__ = car;
+
+// 상속은 계속 이어질 수 있음
+// const x5 = {
+//     color : 'white',
+//     name : 'x5'
+// }
+// x5.__proto__ = bmw;
+
+// console.log(x5); //{ color: 'white', name: 'x5' }
+// console.log(x5.name); //x5
+// console.log(x5.navigation); // 1
+
+// for(p in x5){
+//     console.log(p); //color,name,wheels,navigation,drive
+// }
+
+// for(p in x5){
+//     if(x5.hasOwnProperty(p)){
+//         console.log('o', p);
+//     } else {
+//         console.log('x',p)
+//     }
+// }
+
+// const car = {
+//     wheels : 4,
+//     drive(){
+//         console.log('drive..')
+//     },
+// };
+// const Bmw = function(color) {
+//     this.color = color;
+// };
+// const x5 = new Bmw('red');
+// const z4 = new Bmw('blue');
+
+// x5.__proto__ = car;
+// z4.__proto__ = car;
+
+// Bmw.prototype.wheels = 4;
+// Bmw.prototype.drive = function () {
+//     console.log('drive..');
+// };
+// Bmw.prototype.navigation = 4;
+// Bmw.prototype.stop = function () {
+//     console.log('STOP!!');
+// };
+// console.log(z4.wheels);
+
+// const hd = function(color) {
+//     const c = color;
+//     this.getColor = function(){
+//         console.log(c);
+//     };
+// };
+
+//class
+// constructor로 객체를 만들어 주는 생성자 메서드 
+// extends로 상속 반드시 super키워드로 부모클래스 컨스트럭스 실행해줘야함
+// super.() : 부모class 매서드를 사용함<메소드 오버라이딩>
+
+// const user = function(name,age){
+//     this.name = name;
+//     this.age = age;
+//     this.showName = function(){
+//         console.log(this.name);
+//     };
+// };
+
+// const mike = new user('mike', 30);
+
+// class user2 {
+//     constructor(name,age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//     showName(){
+//         console.log(this.name);
+//     }
+// }
+// const tom = new user2('tom', 19);
+
+// extends
+// class Car {
+//     constructor(color){
+//         this.color = color;
+//         this.wheels = 4;
+//     }
+//     drive() {
+//         console.log('drive..');
+//     }
+//     stop(){
+//         console.log('stop!');
+//     }
+// }
+
+// class Bmw extends Car { //자식클래스
+//     constructor(color){
+//         super(color);
+//         this.navigator = 1;
+//     }
+//     park() {
+//         console.log('park');
+//     }
+//     stop() {
+//         super.stop();
+//         console.log('off');
+//     }
+// }
+// const z4 = new Bmw('blue');
