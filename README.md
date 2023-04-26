@@ -198,9 +198,14 @@ clearsetInterval : 취소
 apply : 매개변수를 배열로 받음 Array로 받음     
 bind : this 값을 항상 같은 값으로 받음
 
-- ## 상속, prototype
+- ## 상속, prototype *
 hasOwnproperty :  메서드로 설정할 경우 메서드 우선     
 객체가 직접 가지고 있는 프로퍼티만 반환     
 상속은 계속 이어질 수 있음    
 A instanceof B : 인스턴스를 확인해 보는 것
 A constructor === B : 생성자 확인
+
+- ## class *
+constructor로 객체를 만들어 주는 생성자 메서드    
+extends로 상속 반드시 super 키워드로 부모클래스 컨스트럭스 실행해줘야함     
+super.() : 부모 클래스 매서드를 사용함 <메소드 오버라이딩>
