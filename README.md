@@ -158,3 +158,54 @@ Array.isArray() : 배열인지 아닌지 확인
 구조분해 바꿔치기 가능
 let a= 1, let b = 2, [a,b] = [b,a];      
 객체 구조 분해 : 순서 상관 없음
+
+- ## 나머지 매개변수, 전개구문(Rest parameters, Spread syntax)
+...점 3개로 표현     
+함수에 접근방법 arguments, 나머지 매개변수    
+
+arguments    
+함수로 넘어 온 모든 인수에 접근가능     
+함수내에서 이용 가능한 지역 변수      
+lenght/index 배열객체 아닌 Array형태의 객체     
+배열의 내장 메서드 없음 사용불가 (forEach, map)     
+
+나머지 매개변수 ....
+개수가 정해지지 않은 매개변수 접근     
+배열 메서드 사용가능     
+전개 구문 배열    
+
+- ## 클로져(Closure)
+어휘적환경(Laxical Environment)      
+함수와 렉시컬 환경의 조합     
+함수가 생성될 당시의 외부 변수를 기억     
+생성 이후에도 계속 접근 가능     
+
+- ## setTimeout / setInterval
+setTimeout() : 일정시간 지난 후 함수 실행      
+setTimeout(showName, 3000, 'Mike')      
+첫번째는 일정시간이 지난 후 실행되는 함수
+두번째는 시간 3000 = 3s
+세번째는 인수
+주의사항 : 0을 입력하면 바로 실행 안되고 4ms이상의 시간이 걸림
+
+clearTimeout() : 스케줄링 취소      
+setInterval : 일정시간 간격으로 함수를 반복     
+clearsetInterval : 취소      
+
+- ## call, apply, bind
+함수 호출 방식과 관계 없이 this를 지정 할 수 있음     
+매개변수를 직접받음     
+apply : 매개변수를 배열로 받음 Array로 받음     
+bind : this 값을 항상 같은 값으로 받음
+
+- ## 상속, prototype *
+hasOwnproperty :  메서드로 설정할 경우 메서드 우선     
+객체가 직접 가지고 있는 프로퍼티만 반환     
+상속은 계속 이어질 수 있음    
+A instanceof B : 인스턴스를 확인해 보는 것
+A constructor === B : 생성자 확인
+
+- ## class *
+constructor로 객체를 만들어 주는 생성자 메서드    
+extends로 상속 반드시 super 키워드로 부모클래스 컨스트럭스 실행해줘야함     
+super.() : 부모 클래스 매서드를 사용함 <메소드 오버라이딩>
