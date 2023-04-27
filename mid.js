@@ -1089,3 +1089,114 @@
 //     }
 // }
 // const z4 = new Bmw('blue');
+
+//프로미스(promise)
+// promise가 이행되거나 거부될때 각각 실행
+// state : pendind(대기)
+// then : 이행 , catch : 거부 finally : 마무리 
+// Promise.all :하나의 정보라도 누락되면 페이지를 보여주지 않아야 되는곳에 사용
+// Promise.race : 하나의 정보라도 완료되면 실행 종료 
+// const pr = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('OK')
+//     }, 3000)
+// });
+// pr.then(
+//     function(result) { //이행
+//         console.log(result + '가지러 가자.')
+//     },
+//     function(err){ //거부
+//         console.log('다시 주문해주세요')
+//     }
+// )
+
+// 실습 
+// const pr = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         reject(new Error("err...."));
+//     }, 1000);
+// })
+// console.log('시작');
+// pr.then((result) => {
+//     console.log(result);
+// })
+//   .catch((err) => {
+//     console.log(err);
+// })
+//   .finally(() => {
+//     console.log ("끝");
+//   })
+
+//1,2,3번의 주문 callback함수로 구현
+// const f1 = (callback) => {
+//     setTimeout(function () {
+//         console.log('1번 주문완료');
+//     callback();
+//     }, 1000);
+// };
+
+// const f2 = (callback) => {
+//     setTimeout(function () {
+//         console.log('2번 주문완료');
+//         callback();
+//     }, 2000);
+// };
+
+// const f3 = (callback) => {
+//     setTimeout(function () {
+//         console.log('3번 주문완료');
+//         callback();
+//     }, 3000);
+// };
+
+// console.log('시작')
+// f1(function() {
+//     f2(function() {
+//         f3(function() {
+//             console.log('끝');
+//         });
+//     });
+// });
+
+// promise 함수로 구현
+// const f1 = () => {
+//     return new Promise((res, rej) => {
+//         setTimeout(() => {
+//             res('1번 주문완료');
+//         });
+//     });
+// };
+
+// const f2 = (massage) => {
+//     console.log(massage);
+//     return new Promise((res, rej) =>{
+//         setTimeout(() => {
+//             res('2번 주문완료');
+//         }, 3000);
+//     });
+// };
+
+// const f3 = (massage) => {
+//     console.log(massage);
+//     return new Promise((res, rej) =>{
+//         setTimeout(() => {
+//             res('3번 주문완료');
+//         }, 2000);
+//     });
+// };
+
+// console.log('시작')
+// f1()
+// .then((res) => f2(res))
+// .then((res) => f3(res))
+// .then((res) => (console.log(res)))
+// .catch(console.log)
+// .finally(() => {
+//     console.log('끝')
+// });
+
+// console.time('x')
+// Promise.race([f1(),f2(),f3()]).then((res) => {
+//     console.log(res);
+//     console.timeEnd('x');
+// });
