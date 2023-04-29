@@ -1200,3 +1200,130 @@
 //     console.log(res);
 //     console.timeEnd('x');
 // });
+
+// async, await
+// 대부분의 상황에서 promise 보다 가독성이 좋음
+// async, await 바꿔보기
+// promise에서는 에러 발생시 catch 사용했지만
+// try catch 문을 사용
+// 에러로그를 출력하고 이후 작업을 진행
+// 비동기함수를 병렬로 사용 가능 (promise.all 사용가능)
+// const f1 = () => {
+//     return new Promise((res, rej) => {
+//         setTimeout(() => {
+//             res('1번 주문완료');
+//         });
+//     });
+// };
+
+// const f2 = (massage) => {
+//     console.log(massage);
+//     return new Promise((res, rej) =>{
+//         setTimeout(() => {
+//             res('2번 주문완료');
+//             // rej(new Error('err..'))
+//         }, 3000);
+//     });
+// };
+
+// const f3 = (massage) => {
+//     console.log(massage);
+//     return new Promise((res, rej) =>{
+//         setTimeout(() => {
+//             res('3번 주문완료');
+//         }, 2000);
+//     });
+// };
+// try , catch
+// console.log('시작');
+// async function order(){
+//     try {
+//         const result = await f1();
+//         const result1 = await f2(result);
+//         const result2 = await f3(result1);
+//         console.log(result2);
+//     } catch (e) {
+//         console.log(e);
+//     }
+//     console.log('종료');
+// }
+// order ();
+
+// promise all
+// console.log('시작');
+// async function order(){
+//     try {
+//         const result = await Promise.all([f1(),f2(),f3()]);
+//         console.log(result);
+//     } catch (e) {
+//         console.log(e);
+//     }
+//     console.log('종료');
+// }
+// order ();
+
+
+// f1()
+// .then((res) => f2(res))
+// .then((res) => f3(res))
+// .then((res) => (console.log(res)))
+// .catch(console.log)
+
+// async function getName() {
+//     // return Promise.resolve('Tom');
+//     throw new Error('err..');
+// }
+
+// getName().catch((err) => {
+//     console.log(err);
+// });
+
+// await 
+// function getName(name) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(name);
+//         }, 1000);
+//     });
+// }
+
+// async function showName(){
+//     const result = await getName("mike");
+//     console.log(result);
+// }
+// console.log('시작');
+// showName();
+
+// generator
+// 함수의 실행을 중간에 멈췄다가 next()해주면  재개할 수 있는 기능
+// function 옆에 *을 써서 만들고
+// 빌드를 키워드를 사용 하여 함수의 실행을 멈출 수 있음
+// iterable : 반복 가능
+// Symbole.iterator 메서드가 있다.
+// Symbole.iterator 는 iterator를 반환해야 한다.
+// next 메서드를 가진다.
+// next 메서드는 value 와 done 속성을 가진 객체를 반환한다.
+// 작업이 끝나면 done 은 ture 가 된다
+// 값을 미리 만들어 두지 않음, 필요한 값을 그때 그때 만듬
+// 외부로부터 값을 받을 수 있음
+// yield* 을 통하여 다른 generator를 받아옴 
+
+// function* fn() {
+//     console.log(1);
+//     yield 1;
+//     console.log(2);
+//     yield 2;
+//     console.log(3);
+//     yield 3;
+//     return 'finish';
+// }
+
+// const a = fn();
+
+// console.log(a.next());
+// console.log(a.next());
+// console.log(a.next());
+// console.log(a.next());
+
+// const arr = [1,2,3,4,5];
+// const it = arr[Symbol.iterator]();
